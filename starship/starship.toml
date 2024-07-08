@@ -1,0 +1,96 @@
+format = """
+${custom.linux}\
+${custom.separador}\
+$directory\
+${custom.separador}\
+$git_branch\
+$git_status\
+${custom.separadorRepo}\
+$fill\
+$git_metrics\
+$nodejs\
+${custom.react}\
+${custom.bash}
+${custom.flecha}\
+$character
+"""
+
+[custom.flecha]
+format = '[ $symbol ]($style)'
+when = 'true'
+symbol = '⮱'
+style = 'fg:#7ccaf6'
+
+[character]
+success_symbol = '[✔ ](bold green)'
+error_symbol = '[✗ ](bold red)'
+
+[directory]
+format = '[🗁 $path]($style)'
+style = 'fg:#8DFBD2'
+truncation_length = 2
+truncation_symbol = '…/'
+
+[custom.linux]
+format = '[ $symbol]($style)'
+style = 'fg:#7ccaf6'
+when = 'true'
+symbol = ''
+
+[git_branch]
+format = '[$symbol $branch(:$remote_branch) ]($style)'
+symbol = ' '
+style = 'bold purple'
+
+[git_status]
+format = '([\[$all_status\]]($style))'
+style = 'bold purple'
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+
+[fill]
+symbol = ' '
+
+[git_metrics]
+format = '([+$added ]($added_style))([-$deleted ]($deleted_style))'
+added_style = 'bold green'
+deleted_style = 'bold red'
+disabled = false
+
+[nodejs]
+format = '[Node $symbol](bold green)'
+
+[custom.bash]
+format = '[$symbol ]($style)'
+style = ''
+when = 'true'
+symbol = ''
+
+[custom.separador]
+format = '[ $symbol ]($style)'
+style = 'fg:#e12a2a'
+when = 'true'
+symbol = 'ゞ'
+
+[custom.separadorRepo]
+format = '[$symbol]($style)'
+style = 'fg:#e12a2a'
+when = 'true'
+symbol = 'ゞ'
+require_repo = true
+
+[custom.react]
+format = '[ $symbol ]($style)'
+style = 'fg:#7ccaf6'
+detect_extensions = ['jsx', 'tsx']
+symbol = '⚛'
+
